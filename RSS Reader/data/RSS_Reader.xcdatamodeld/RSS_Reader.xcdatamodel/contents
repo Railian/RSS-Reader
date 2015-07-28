@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AppleNewsItem" representedClassName="AppleNewsItem" syncable="YES">
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pubDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="synopsis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="webContent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WebContent" inverseName="appleNewsItem" inverseEntity="WebContent" syncable="YES"/>
+    </entity>
+    <entity name="WebContent" representedClassName="WebContent" syncable="YES">
+        <attribute name="html" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appleNewsItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AppleNewsItem" inverseName="webContent" inverseEntity="AppleNewsItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AppleNewsItem" positionX="-2171" positionY="-877" width="128" height="118"/>
+        <element name="WebContent" positionX="-1953" positionY="-855" width="128" height="73"/>
+    </elements>
+</model>
