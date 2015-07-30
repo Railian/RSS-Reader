@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @class AppleNewsItem;
-@protocol AppleNewsCellDelegate;
 
 @interface AppleNewsCell : UITableViewCell
 

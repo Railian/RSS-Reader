@@ -7,7 +7,6 @@
 //
 
 #import "AppleNewsDetailedController.h"
-#import "AppleNewsItem.h"
 
 @interface AppleNewsDetailedController ()
 
@@ -19,17 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:self.item.link];
+    NSURL *url = [NSURL URLWithString:self.link];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    self.webView.delegate = self;
     [self.webView loadRequest:request];
-}
-
-#pragma mark - UIWebViewDelegate
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSString *html = [webView stringByEvaluatingJavaScriptFromString: @"document.body.innerHTML"];
-    NSLog(@"%@", html);
 }
 
 @end

@@ -8,21 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		CB627D821B5E58300044ECE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D811B5E58300044ECE6 /* AppDelegate.m */; };
-		CB627D851B5E58480044ECE6 /* RSS_Reader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB627D831B5E58480044ECE6 /* RSS_Reader.xcdatamodeld */; };
 		CB627D8E1B5E606E0044ECE6 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D8C1B5E606E0044ECE6 /* DateUtils.m */; };
 		CB627D921B5E60B00044ECE6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB627D911B5E60B00044ECE6 /* LaunchScreen.xib */; };
 		CB627DA01B5E60E80044ECE6 /* AppleNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D9B1B5E60E80044ECE6 /* AppleNewsCell.m */; };
-		CB627DA11B5E60E80044ECE6 /* AppleNewsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D9D1B5E60E80044ECE6 /* AppleNewsTableController.m */; };
 		CB627DA21B5E60E80044ECE6 /* SeasonHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D9F1B5E60E80044ECE6 /* SeasonHeaderCell.m */; };
-		CB627DA71B5E610A0044ECE6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB627DA51B5E610A0044ECE6 /* Info.plist */; };
 		CB627DA81B5E610A0044ECE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627DA61B5E610A0044ECE6 /* main.m */; };
 		CB627DAB1B5E61380044ECE6 /* AppleNewsDetailedController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627DAA1B5E61380044ECE6 /* AppleNewsDetailedController.m */; };
 		CB627DAE1B5EB8A10044ECE6 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627DAD1B5EB8A10044ECE6 /* Label.m */; };
 		CB65CB791B5FB5D100569055 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB65CB781B5FB5D100569055 /* Main.storyboard */; };
-		CB6D86171B66886100187390 /* AppleNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6D86141B66886100187390 /* AppleNewsItem.m */; };
-		CB6D86181B66886100187390 /* WebContent.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6D86161B66886100187390 /* WebContent.m */; };
 		CB8A38FB1B583C6700874DF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8A38FA1B583C6700874DF9 /* Images.xcassets */; };
 		CB8A390A1B583C6700874DF9 /* RSS_ReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8A39091B583C6700874DF9 /* RSS_ReaderTests.m */; };
+		CBA3D2D11B6A78EC0040604C /* AppleNewsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB627D9D1B5E60E80044ECE6 /* AppleNewsTableController.m */; };
+		CBA3D2D41B6A7D790040604C /* AppleNewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA3D2D31B6A7D790040604C /* AppleNewsItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +35,6 @@
 /* Begin PBXFileReference section */
 		CB627D801B5E58300044ECE6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = app/AppDelegate.h; sourceTree = "<group>"; };
 		CB627D811B5E58300044ECE6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = app/AppDelegate.m; sourceTree = "<group>"; };
-		CB627D841B5E58480044ECE6 /* RSS_Reader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSS_Reader.xcdatamodel; sourceTree = "<group>"; };
 		CB627D8B1B5E606E0044ECE6 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtils.h; path = utils/DateUtils.h; sourceTree = "<group>"; };
 		CB627D8C1B5E606E0044ECE6 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtils.m; path = utils/DateUtils.m; sourceTree = "<group>"; };
 		CB627D911B5E60B00044ECE6 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ui/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -56,15 +52,13 @@
 		CB627DAD1B5EB8A10044ECE6 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Label.m; path = ui/main/AppleNewsTable/Label.m; sourceTree = "<group>"; };
 		CB65CB771B5FAD7400569055 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = "Supporting Files/PrefixHeader.pch"; sourceTree = "<group>"; };
 		CB65CB781B5FB5D100569055 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ui/main/Main.storyboard; sourceTree = "<group>"; };
-		CB6D86131B66886100187390 /* AppleNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleNewsItem.h; path = models/AppleNewsItem.h; sourceTree = "<group>"; };
-		CB6D86141B66886100187390 /* AppleNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleNewsItem.m; path = models/AppleNewsItem.m; sourceTree = "<group>"; };
-		CB6D86151B66886100187390 /* WebContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebContent.h; path = models/WebContent.h; sourceTree = "<group>"; };
-		CB6D86161B66886100187390 /* WebContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebContent.m; path = models/WebContent.m; sourceTree = "<group>"; };
 		CB8A38E71B583C6700874DF9 /* RSS Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8A38FA1B583C6700874DF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB8A39031B583C6700874DF9 /* RSS ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RSS ReaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8A39081B583C6700874DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB8A39091B583C6700874DF9 /* RSS_ReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSS_ReaderTests.m; sourceTree = "<group>"; };
+		CBA3D2D21B6A7D790040604C /* AppleNewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleNewsItem.h; path = models/AppleNewsItem.h; sourceTree = "<group>"; };
+		CBA3D2D31B6A7D790040604C /* AppleNewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleNewsItem.m; path = models/AppleNewsItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,21 +88,11 @@
 			name = app;
 			sourceTree = "<group>";
 		};
-		CB627D7B1B5E57E20044ECE6 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				CB627D831B5E58480044ECE6 /* RSS_Reader.xcdatamodeld */,
-			);
-			name = data;
-			sourceTree = "<group>";
-		};
 		CB627D7C1B5E57E80044ECE6 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				CB6D86131B66886100187390 /* AppleNewsItem.h */,
-				CB6D86141B66886100187390 /* AppleNewsItem.m */,
-				CB6D86151B66886100187390 /* WebContent.h */,
-				CB6D86161B66886100187390 /* WebContent.m */,
+				CBA3D2D21B6A7D790040604C /* AppleNewsItem.h */,
+				CBA3D2D31B6A7D790040604C /* AppleNewsItem.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -197,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				CB627D7A1B5E57DA0044ECE6 /* app */,
-				CB627D7B1B5E57E20044ECE6 /* data */,
 				CB627D7C1B5E57E80044ECE6 /* models */,
 				CB627D7F1B5E58160044ECE6 /* utils */,
 				CB627D7E1B5E58110044ECE6 /* ui */,
@@ -307,7 +290,6 @@
 				CB627D921B5E60B00044ECE6 /* LaunchScreen.xib in Resources */,
 				CB65CB791B5FB5D100569055 /* Main.storyboard in Resources */,
 				CB8A38FB1B583C6700874DF9 /* Images.xcassets in Resources */,
-				CB627DA71B5E610A0044ECE6 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,15 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA3D2D11B6A78EC0040604C /* AppleNewsTableController.m in Sources */,
 				CB627DA81B5E610A0044ECE6 /* main.m in Sources */,
-				CB627DA11B5E60E80044ECE6 /* AppleNewsTableController.m in Sources */,
 				CB627DA21B5E60E80044ECE6 /* SeasonHeaderCell.m in Sources */,
+				CBA3D2D41B6A7D790040604C /* AppleNewsItem.m in Sources */,
 				CB627DAB1B5E61380044ECE6 /* AppleNewsDetailedController.m in Sources */,
-				CB6D86171B66886100187390 /* AppleNewsItem.m in Sources */,
 				CB627DAE1B5EB8A10044ECE6 /* Label.m in Sources */,
 				CB627D821B5E58300044ECE6 /* AppDelegate.m in Sources */,
-				CB6D86181B66886100187390 /* WebContent.m in Sources */,
-				CB627D851B5E58480044ECE6 /* RSS_Reader.xcdatamodeld in Sources */,
 				CB627D8E1B5E606E0044ECE6 /* DateUtils.m in Sources */,
 				CB627DA01B5E60E80044ECE6 /* AppleNewsCell.m in Sources */,
 			);
@@ -527,20 +507,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CB627D831B5E58480044ECE6 /* RSS_Reader.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CB627D841B5E58480044ECE6 /* RSS_Reader.xcdatamodel */,
-			);
-			currentVersion = CB627D841B5E58480044ECE6 /* RSS_Reader.xcdatamodel */;
-			name = RSS_Reader.xcdatamodeld;
-			path = data/RSS_Reader.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CB8A38DF1B583C6700874DF9 /* Project object */;
 }

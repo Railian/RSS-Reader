@@ -7,58 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@class WebContent;
-
-@interface AppleNewsItem : NSManagedObject
+@interface AppleNewsItem : NSObject
 
 #define APPLE_NEWS_ITEM_PN_TITLE        @"title"
 #define APPLE_NEWS_ITEM_PN_SYNOPSIS     @"synopsis"
 #define APPLE_NEWS_ITEM_PN_LINK         @"link"
 #define APPLE_NEWS_ITEM_PN_PUB_DATE     @"pubDate"
-#define APPLE_NEWS_ITEM_PN_WEB_CONTENT  @"webContent"
 
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *synopsis;
-@property (nonatomic, retain) NSString *link;
-@property (nonatomic, retain) NSDate *pubDate;
-@property (nonatomic, retain) WebContent *webContent;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *synopsis;
+@property (strong, nonatomic) NSString *link;
+@property (strong, nonatomic) NSDate *pubDate;
 
-- (WebContent *)webContent;
-- (void)setWebContent:(WebContent *)webContent;
++ (NSArray *)appleNewsItemsFromUrl:(NSString *)stringUrl;
 
-@end
-
-
-
-@interface AppleNewsItem (Create)
-
-+ (AppleNewsItem *)appleNewsItemWithLink:(NSString *)link
-                     inManagedObjectContext:(NSManagedObjectContext *)context;
-
-@end
-
-
-
-@interface AppleNewsItem (RSS)
-
-+ (NSArray *)allAppleNewsItemsInManagedObjectContext:(NSManagedObjectContext *)context;
-
-+ (BOOL)refreshAppleNewsItemsFromUrl:(NSString *)stringUrl
-              inManagedObjectContext:(NSManagedObjectContext *)context;
-
-@end
+@end // AppleNewsItem
 
 
 
 @interface AppleNewsItemParserDelegate : NSObject <NSXMLParserDelegate>
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic, readonly) NSArray *appleNewsItems;
 
-@property (strong, nonatomic) NSString *propertyName;
-@property (strong, nonatomic) NSMutableDictionary *itemDictionary;
-
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context;
-
-@end
+@end // AppleNewsItemParserDelegate

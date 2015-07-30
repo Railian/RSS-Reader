@@ -29,9 +29,7 @@ static const CGFloat FOOTER_HEIGHT = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(80, 0, 0, 0)];
-   [AppleNewsItem refreshAppleNewsItemsFromUrl:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"
-                         inManagedObjectContext:APP_DELEGATE.managedObjectContext];
-    [self addItems:[AppleNewsItem allAppleNewsItemsInManagedObjectContext:APP_DELEGATE.managedObjectContext]];
+    [self addItems:[AppleNewsItem appleNewsItemsFromUrl:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"]];
    }
 
 -(void)addItems:(NSArray *)newItems {
@@ -81,6 +79,7 @@ static const CGFloat FOOTER_HEIGHT = 20.f;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     static NSString *HEADER_IDENTIFIER = @"HEADER";
+    
     SeasonHeaderCell *header = [tableView dequeueReusableCellWithIdentifier: HEADER_IDENTIFIER];
     [header configureWithDate:[_sortedSeasons objectAtIndex:section]];
     return header;
@@ -93,12 +92,13 @@ static const CGFloat FOOTER_HEIGHT = 20.f;
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     static NSString *FOOTER_IDENTIFIER = @"FOOTER";
     UIView *footer = [tableView dequeueReusableCellWithIdentifier: FOOTER_IDENTIFIER];
+    
     return footer;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CELL_IDENTIFIER = @"CELL";
-    if(!_sizingCell) _sizingCell =[self.tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
+    if(!_sizingCell) _sizingCell = [self.tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
     [_sizingCell configureWithItem:[self itemAtIndexPath:indexPath]];
     return [_sizingCell calculateHeightWithTableWidth: CGRectGetWidth(tableView.frame)];
 }
@@ -119,7 +119,7 @@ static const CGFloat FOOTER_HEIGHT = 20.f;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         AppleNewsItem *item = [self itemAtIndexPath:indexPath];
-        controller.item = item;
+        controller.link = item.link;
     }
 }
 

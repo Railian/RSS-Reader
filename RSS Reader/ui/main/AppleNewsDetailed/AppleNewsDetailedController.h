@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class AppleNewsItem;
+@class AppleNewsItems;
 
 @interface AppleNewsDetailedController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) AppleNewsItem *item;
+@property (strong, nonatomic) NSString *link;
 
 @end
