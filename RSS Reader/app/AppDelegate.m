@@ -10,10 +10,6 @@
 #import "AppleNewsTableController.h"
 #import "AppleNewsDetailedController.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 - (void)prepareNavigationControllerFrom:(UIViewController *)from to:(UIViewController *)to{
@@ -133,4 +129,4 @@
     }
 }
 
-@end
+@end // AppDelegate

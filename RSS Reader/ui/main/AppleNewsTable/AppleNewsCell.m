@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet Label *labelDescription;
 @property (weak, nonatomic) IBOutlet Label *labelDate;
 
-@end
+@end // AppleNewsCell
 
 @implementation AppleNewsCell
 
@@ -34,4 +34,4 @@
     return [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 
-@end
+@end // AppleNewsCell

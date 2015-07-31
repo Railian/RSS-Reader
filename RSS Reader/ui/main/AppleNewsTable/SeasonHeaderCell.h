@@ -12,4 +12,4 @@
 
 - (void)configureWithDate:(NSDate *)date;
 
-@end
+@end // SeasonHeaderCell

@@ -15,24 +15,28 @@
 
 @interface AppleNewsTableController ()
 
+#define STRING_URL @"http://images.apple.com/main/rss/hotnews/hotnews.rss"
+#define HEADER_HEIGHT 85.f
+#define FOOTER_HEIGHT 20.f
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) AppleNewsCell *sizingCell;
 @property (strong, nonatomic) NSMutableDictionary *seasonsItems;
 @property (strong, nonatomic) NSArray *sortedSeasons;
 
-@end
+@end // AppleNewsTableController
 
 @implementation AppleNewsTableController
 
-static const CGFloat HEADER_HEIGHT = 85.f;
-static const CGFloat FOOTER_HEIGHT = 20.f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_tableView setScrollIndicatorInsets:UIEdgeInsetsMake(80, 0, 0, 0)];
-    [self addItems:[AppleNewsItem appleNewsItemsFromUrl:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"]];
+    [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(80, 0, 0, 0)];
+    [self addAndSortItems:[AppleNewsItem appleNewsItemsFromUrl:STRING_URL]];
    }
 
--(void)addItems:(NSArray *)newItems {
+-(void)addAndSortItems:(NSArray *)newItems {
     if (!self.seasonsItems) self.seasonsItems = [NSMutableDictionary dictionary];
     for(AppleNewsItem *item in newItems) {
         NSDate *season = [DateUtils seasonFromDate:item.pubDate];
@@ -123,4 +127,4 @@ static const CGFloat FOOTER_HEIGHT = 20.f;
     }
 }
 
-@end
+@end // AppleNewsTableController

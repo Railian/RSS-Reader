@@ -23,11 +23,3 @@
 + (NSArray *)appleNewsItemsFromUrl:(NSString *)stringUrl;
 
 @end // AppleNewsItem
-
-
-
-@interface AppleNewsItemParserDelegate : NSObject <NSXMLParserDelegate>
-
-@property (strong, nonatomic, readonly) NSArray *appleNewsItems;
-
-@end // AppleNewsItemParserDelegate

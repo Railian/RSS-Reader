@@ -153,8 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				CB65CB781B5FB5D100569055 /* Main.storyboard */,
-				CB627D901B5E608E0044ECE6 /* AppleNewsDetailed */,
 				CB627D8F1B5E60760044ECE6 /* AppleNewsTable */,
+				CB627D901B5E608E0044ECE6 /* AppleNewsDetailed */,
 			);
 			name = main;
 			sourceTree = "<group>";

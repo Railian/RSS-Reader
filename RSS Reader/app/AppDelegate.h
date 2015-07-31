@@ -23,4 +23,4 @@
 
 - (void)prepareNavigationControllerFrom:(UIViewController *)from to:(UIViewController *)to;
 
-@end
+@end // AppDelegate

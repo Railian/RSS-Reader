@@ -14,4 +14,4 @@
 
 @property (strong, nonatomic) NSString *link;
 
-@end
+@end // AppleNewsDetailedController

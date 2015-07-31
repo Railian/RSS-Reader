@@ -14,4 +14,4 @@
 + (NSDate *)dateFromString:(NSString *)string;
 + (NSString *)stringFromDate:(NSDate *)date;
 
-@end
+@end // DateUtils

@@ -16,4 +16,4 @@
 
 - (CGFloat)calculateHeightWithTableWidth:(CGFloat)width;
 
-@end
+@end // AppleNewsCell

@@ -23,4 +23,4 @@
     [self.webView loadRequest:request];
 }
 
-@end
+@end // AppleNewsDetailedController

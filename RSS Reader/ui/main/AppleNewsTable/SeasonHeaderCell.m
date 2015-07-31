@@ -21,7 +21,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewSeason;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 
-@end
+@end // SeasonHeaderCell
 
 @implementation SeasonHeaderCell
 
@@ -29,8 +29,8 @@ typedef enum {
 #define IMAGE_NAME_KEY @"IMAGE_NAME"
 
 - (void)configureWithDate:(NSDate *)date {
-    static const NSDictionary *seasonsInfo = nil;
-    if (!seasonsInfo) seasonsInfo = @{
+    static const NSDictionary *SEASONS_INFO = nil;
+    if (!SEASONS_INFO) SEASONS_INFO = @{
                                       @(SeasonWinter): @{SEASON_NAME_KEY:@"Winter", IMAGE_NAME_KEY:@"season_winter"},
                                       @(SeasonSpring): @{SEASON_NAME_KEY:@"Spring", IMAGE_NAME_KEY:@"season_spring"},
                                       @(SeasonSummer): @{SEASON_NAME_KEY:@"Summer", IMAGE_NAME_KEY:@"season_summer"},
@@ -41,9 +41,9 @@ typedef enum {
     calendar.timeZone = timeZone;
     NSDateComponents *components = [calendar components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
     
-    NSDictionary *seasonInfo = [seasonsInfo objectForKey:@(components.month)];
+    NSDictionary *seasonInfo = [SEASONS_INFO objectForKey:@(components.month)];
     self.labelName.text = [NSString stringWithFormat:@"%@, %lu", [seasonInfo valueForKey:SEASON_NAME_KEY], components.year];;
     self.imageViewSeason.image = [UIImage imageNamed:[seasonInfo valueForKey:IMAGE_NAME_KEY]];
 }
 
-@end
+@end // SeasonHeaderCell

@@ -9,6 +9,18 @@
 #import "AppleNewsItem.h"
 #import "DateUtils.h"
 
+@interface AppleNewsItemParserDelegate : NSObject <NSXMLParserDelegate>
+
+@property (strong, nonatomic) NSString *propertyName;
+@property (strong, nonatomic) NSMutableDictionary *itemDictionary;
+@property (strong, nonatomic) NSMutableArray *tempItems;
+
+@property (readonly, strong, nonatomic) NSArray *appleNewsItems;
+
+@end // AppleNewsItemParserDelegate
+
+#pragma mark -
+
 @implementation AppleNewsItem
 
 + (NSArray *)appleNewsItemsFromUrl:(NSString *)stringUrl {
@@ -22,15 +34,7 @@
 
 @end // AppleNewsItem
 
-
-
-@interface AppleNewsItemParserDelegate ()
-
-@property (strong, nonatomic) NSString *propertyName;
-@property (strong, nonatomic) NSMutableDictionary *itemDictionary;
-@property (strong, nonatomic) NSMutableArray *tempItems;
-
-@end // AppleNewsItemParserDelegate
+#pragma mark -
 
 @implementation AppleNewsItemParserDelegate
 
@@ -80,6 +84,7 @@
 }
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser {
+    _appleNewsItems = nil;
     _appleNewsItems = self.tempItems;
     self.tempItems = nil;
 }
