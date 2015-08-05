@@ -33,8 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setScrollIndicatorInsets:UIEdgeInsetsMake(80, 0, 0, 0)];
-    [self addAndSortItems:[AppleNewsItem appleNewsItemsFromUrl:STRING_URL]];
-   }
+    [AppleNewsItem loadAppleNewsItemsFromUrl:STRING_URL
+                             withSuccess:^(NSArray *items) {
+                                 [self addAndSortItems:items];
+                                 [self.tableView reloadData];
+                             } failure:^(AFHTTPRequestOperation * operation, NSError * error) {
+                                     NSLog(@"%@", error);
+                                 }];
+}
 
 -(void)addAndSortItems:(NSArray *)newItems {
     if (!self.seasonsItems) self.seasonsItems = [NSMutableDictionary dictionary];

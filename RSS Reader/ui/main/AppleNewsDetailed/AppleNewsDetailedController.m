@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
-@end
+@end // AppleNewsDetailedController
 
 @implementation AppleNewsDetailedController
 

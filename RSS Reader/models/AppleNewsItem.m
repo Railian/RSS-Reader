@@ -11,11 +11,13 @@
 
 @interface AppleNewsItemParserDelegate : NSObject <NSXMLParserDelegate>
 
+@property (strong, nonatomic) AppleNewsItemFetchCallback callback;
+
 @property (strong, nonatomic) NSString *propertyName;
 @property (strong, nonatomic) NSMutableDictionary *itemDictionary;
 @property (strong, nonatomic) NSMutableArray *tempItems;
 
-@property (readonly, strong, nonatomic) NSArray *appleNewsItems;
+- (instancetype)initWithCallack:(AppleNewsItemFetchCallback)callback;
 
 @end // AppleNewsItemParserDelegate
 
@@ -23,13 +25,23 @@
 
 @implementation AppleNewsItem
 
-+ (NSArray *)appleNewsItemsFromUrl:(NSString *)stringUrl {
++ (void)loadAppleNewsItemsFromUrl:(NSString *)stringUrl
+                      withSuccess:(AppleNewsItemFetchCallback)callback
+                          failure:(nullable void (^)(AFHTTPRequestOperation *__nonnull __strong, NSError *__nonnull __strong)) failure {
     NSURL *url = [[NSURL alloc] initWithString: stringUrl];
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-    AppleNewsItemParserDelegate *delegate = [[AppleNewsItemParserDelegate alloc] init];
-    xmlParser.delegate = delegate;
-    [xmlParser parse];
-    return delegate.appleNewsItems;
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/rss+xml"];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSDictionary *responseDictionary) {
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+        AppleNewsItemParserDelegate *delegate = [[AppleNewsItemParserDelegate alloc] initWithCallack:callback];
+        xmlParser.delegate = delegate;
+        [xmlParser parse];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) failure(operation, error);
+    }];
+    [operation start];
 }
 
 @end // AppleNewsItem
@@ -37,6 +49,12 @@
 #pragma mark -
 
 @implementation AppleNewsItemParserDelegate
+
+- (instancetype)initWithCallack:(AppleNewsItemFetchCallback)callback {
+    if (self = [super init])
+        self.callback = callback;
+    return self;
+}
 
 + (void)appendString:(NSString *)string toDictionary:(NSMutableDictionary *)dictionary forKey:(id)key {
     if (dictionary[key]) dictionary[key] = [dictionary[key] stringByAppendingString:string];
@@ -84,8 +102,7 @@
 }
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser {
-    _appleNewsItems = nil;
-    _appleNewsItems = self.tempItems;
+    self.callback(self.tempItems);
     self.tempItems = nil;
 }
 
